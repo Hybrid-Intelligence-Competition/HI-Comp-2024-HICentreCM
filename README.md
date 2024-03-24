@@ -1,1 +1,1 @@
-# HI-Comp-2024-HICentreCM
+Website of HI Comp 2024 @ Hybrid Intelligence Centre Consortium Meeting, April 16-17 2024
