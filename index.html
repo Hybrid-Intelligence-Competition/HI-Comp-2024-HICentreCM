@@ -16,6 +16,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.csv.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+        <script src="js/csv_to_html_table.js"></script>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -31,8 +40,9 @@
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#overview">Overview</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#challenge">Challenge</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#submission">Submission</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="#finalists">Finalists</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#dates">Dates</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#finalists">Finalists</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="#scenarios">Scenarios</a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#organization">Organization</a></li>
                     </ul>
                     <!--<button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
@@ -55,7 +65,7 @@
                             <h4>The Pearls and Perils of Hybrid (Human-AI) Intelligence System Design</h4><br/>
 
                             <h5 class="lead fw-normal text-muted mb-5">To be held in Twente, The Netherlands, as a part of the Hybrid Intelligence Centre Consortium Meeting, April 16-17th, 2024.</h5>
-                            <div class="d-flex flex-column align-items-center">
+                            <!--<div class="d-flex flex-column align-items-center">
                                 <a href="#submission"><button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0">
                                     <span class="d-flex align-items-center">
                                         <span>Submit Here!</span>
@@ -63,7 +73,7 @@
                                 </button></a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!--<div class="col-lg-2">
                         <div class="masthead-device-mockup">
                             <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -92,17 +102,52 @@
                 </div>
             </div>
         </header>
-        <!-- Quote/testimonial aside-->
-        <aside class="text-center bg-gradient-primary-to-secondary">
-            <!-- <div class="container px-5">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-xl-8">
-                        <div class="h2 fs-1 text-white mb-4">Theme HI Comp 2024<br/> Fundamental qualities of HI teams.</div>
-                        <img src="assets/img/tnw-logo.svg" alt="..." style="height: 3rem" />
+
+                <aside class="text-center bg-gradient-primary-to-secondary"></aside>
+
+
+        <section class="bg-light" id="thankyou">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+                    <div class="col-12 col-lg-12 text-center">
+                        <h2>Thank you!</h2><br/>
+                        <h5 class="lead fw-normal text-muted mb-5">A great thank you to all the participants for their contributions!<br/>
+                            The winner teams and all the submitted scenarios can be found <a href="#finalists">here</a>.
+                        </h5>
+                        <div id="pics-container" class="owl-carousel"></div>
+                        <script>
+                        var pic_folder = "assets/pics/";
+                        var pic_nr = 10;
+                        for (let i = 1; i < pic_nr+1; i++) {
+                            var pic_addr = pic_folder + "p"+i +".jpg";
+                            $("#pics-container").append( "<div><a href='"+pic_addr+"'><img src='"+pic_addr+"' class='img-thumbnail'></a></div>" );
+                        }
+                        $(document).ready(function(){
+                          $('.owl-carousel').owlCarousel({
+                                loop:true,
+                                margin:10,
+                                nav:true,
+                                responsive:{
+                                    0:{
+                                        items:1
+                                    },
+                                    600:{
+                                        items:3
+                                    },
+                                    1000:{
+                                        items:5
+                                    }
+                                }
+                            });
+                        });
+                        </script>
                     </div>
                 </div>
-            </div>-->
-        </aside>
+            </div>
+        </section>
+
+        <aside class="text-center bg-gradient-primary-to-secondary"></aside>
+
         <!-- Basic features section-->
         <section class="bg-light" id="overview">
             <div class="container px-5">
@@ -187,7 +232,7 @@ See <a href="#submission">Submission</a> section for more information on how to 
                                     <li>Clarity of presentation</li>
                                 </ul>
                             <h4>Prizes</h4>
-                            TBA
+                            1st place: A T-shirt with the Hybrid Intelligence logo!
                             <!--Certificates and monetary prizes will be presented to the top three teams.
                             <ul>
                                     <li>1st place: &euro; 200 </li>
@@ -221,20 +266,7 @@ See <a href="#submission">Submission</a> section for more information on how to 
             </div>
         </section>
 
-                <aside class="text-center bg-gradient-primary-to-secondary"></aside>
-
-       <section class="bg-light" id="submission">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
-                    <div class="col-12 col-lg-12">
-                        <h2 class="text-center">Finalists and Participants</h2><br/>
-                        <p> To be announced</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-                <aside class="text-center bg-gradient-primary-to-secondary"></aside>
+        <aside class="text-center bg-gradient-primary-to-secondary"></aside>
 
 
        <section class="bg-light" id="dates">
@@ -252,6 +284,99 @@ See <a href="#submission">Submission</a> section for more information on how to 
                            12:45 - Deadline for submission<br/>
                            13:00 - Lunch<br/>
                            After 14:00 - Announcing the winners and photo<br/></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+               
+                <aside class="text-center bg-gradient-primary-to-secondary"></aside>
+
+       <section class="bg-light" id="finalists">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+                    <div class="col-12 col-lg-12">
+                        <h2 class="text-center">Finalists and Participants</h2><br/>
+                        <p>
+                            <h4>1st place</h4>
+                            Team <b>Doomsday Dingles</b>: Andreas Sauter (VU), Alejandro Garcia Castellanos (UVA), Daniel Pelt (Leiden University)<br/><br/>
+                        </p>
+                        <h4>All participants teams (alphabetical order)</h4>
+                        <p>
+                            <ul>
+                                <li><b>ChatJam</b>: Annette Ten Teije (VUA), Mark Neerincx (TU Delft / TNO), Joost Broekens (Leiden), ChatGPT (NA)</li>
+                                <li><b>Chenxu & Myrthe</b>: Myrthe Tielman (Delft University of Technology), Chenxu Hao (TU Delft)</li>
+                                <li><b>Doomsday Dingles</b>: Andreas Sauter (VU), Alejandro Garcia Castellanos (UVA), Daniel Pelt (Leiden University)</li>
+                                <li><b>Dr. House</b>: Huseyin Aydin (Utrecht University), Frank van Harmelen (Vrije Universiteit Amsterdam), Mani Tajaddini (TU Delft)</li>
+                            <li><b>Poor Estonia</b>: Giacomo Zamprogno (VU), Silja Renooij (UU), Amir Homayounirad (TU Delft)</li>
+                            <li><b>Robot Teacher Tom</b>: Piek Vossen (Vrije Universiteit Amsterdam), Deborah van Sinttruije (TU Delft), Annika Kniele (Vrije Universiteit Amsterdam)</li>
+                            <li><b>Symbiotic Mindworks</b>: Taewoon Kim (VU Amsterdam), Mark Adamik (VU Amsterdam), Anna Kuzina (VU Amsterdam)</li>
+                            <li><b>The Blunt Dissectors</b>: Kim Baraka (VU Amsterdam), Dalibor Vasilic (ErasmusMC)</li>
+                            <li><b>VURL</b>: Bernhard Hilpert (Leiden University), Kevin Godin-Dubois (Vu Amsterdam)</li>
+                            <li><b>#TeamSusan</b>: Agnes Axelsson (TU Delft), Delaram Javdani Rikhtehgar (University of Twente), Shenghui Wang (UTwente)</li>
+
+                            </ul>
+
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <aside class="text-center bg-gradient-primary-to-secondary"></aside>
+
+       <section class="bg-light" id="scenarios">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+                    <div class="col-12 col-lg-12">
+                        <h2 class="text-center">Submitted Scenarios</h2><br/>
+                        <p> In the following, a data set containing all the scenarios submitted by the competition participants is reported.
+                            </p>
+
+                        <div id="table-container"></div>
+        
+                        
+
+                        <script>
+                            function format_link(link) {
+                                if (link)
+                                    return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+                                else return "";
+                            }
+
+                            CsvToHtmlTable.init({
+                                csv_path: "data/HIComp2024_HICentreCM_SubmittedScenarios.csv",
+                                element: "table-container",
+                                allow_download: true,
+                                csv_options: {
+                                    separator: ",",
+                                    delimiter: '"'
+                                },
+                                datatables_options: {
+                                    paging: true,
+                                    pageLength: 1.,
+                                    lengthChange: false,
+                                    columns: [{ width: '3%' }, { width: '3%' }, { width: '3%' }, { width: '3%' }, { width: '42.5%' }, { width: '3%' }, { width: '42.5%' }]
+                                }/*,
+                                custom_formatting: [
+                                    [4, format_link]
+                                ]*/
+                            });
+                        </script>
+
+                        <p>
+                            The columns in the dataset are described as follows:
+                         <ul>
+                            <li><strong>Date:</strong> The date of submission of the scenarios (Date).</li>
+                            <li><strong>Event:</strong> The event where the scenario was submitted (String).</li>
+                            <li><strong>Team:</strong> The name of the participants team that submitted the scenario (String).</li>
+                            <li><strong>Best Case - Use Case HI Team:</strong> The HI Use Case (see Section 1 in the competition details) considered by the Team for the Best Case Scenario (String).</li>
+                            <li><strong>Best Case - Scenario:</strong> The Best Case Scenario submitted by the Team (String).</li>
+                            <li><strong>Worst Case - Use Case HI Team:</strong> The HI Use Case (see Section 1 in the competition details) considered by the Team for the Worst Case Scenario (String).</li>
+                            <li><strong>Worst Case - Scenario:</strong> The Worst Case Scenario submitted by the Team (String).</li>
+                            
+                        </ul></p>
+
                     </div>
                 </div>
             </div>
@@ -413,5 +538,7 @@ See <a href="#submission">Submission</a> section for more information on how to 
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!-- Carousel-->
+        <script src="js/owl.carousel.min.js"></script>
     </body>
 </html>
